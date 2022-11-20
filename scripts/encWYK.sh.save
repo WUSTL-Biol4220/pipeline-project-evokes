@@ -1,0 +1,29 @@
+#!/bin/bash
+
+INPUTDIR=$1
+#echo $INPUTDIR
+cwd=$(pwd)
+cd ..
+parentwd=$(pwd)
+mkdir wyk
+
+for file in ${INPUTDIR}/*.fasta:
+do
+  testname=""
+  testname="$(echo ${file})"
+#  echo $testname
+  name=""
+  name="$(echo ${testname} | rev | cut -f1 -d '/' | rev)"
+#  echo $name
+  infilename=""
+  infilename="${INPUTDIR}/${name}"
+#  echo $infilename
+  outfilename=""
+  outfilename="${parentwd}/wyk/wyk_${name}"
+#  echo $outfilename
+  cd ${cwd}
+  python3 encodeWYK.py --infile "${infilename}" --outfile "${outfilename}"
+#  echo ${infilename}
+#  echo ${outfilename}
+  echo $i
+done
