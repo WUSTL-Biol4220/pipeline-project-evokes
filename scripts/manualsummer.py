@@ -1,10 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Nov 20 13:34:51 2022
-
-@author: avkes
-"""
+#!/usr/bin/python
 
 import argparse
 from itertools import zip_longest
