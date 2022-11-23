@@ -2,12 +2,7 @@
 
 import argparse
 import numpy as np
-#import scipy
 from scipy import signal
-#import matplotlib
-#from numpy.fft import rfft, irfft
-#import matplotlib.pyplot as plt
-#import pandas as pd
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--ref", help="ref file of WYK encoded sequences in string")
@@ -21,19 +16,11 @@ x1 = np.loadtxt(args.infile)
 c12 = signal.correlate(ref, x1, mode='full', method='auto')
 
 c12s2=c12[2::3]
-#print(c12s2)
-#plt.plot(c12s2)
-#plt.show()
 
 cmax = np.amax(c12s2)
-#print(cmax)
-
-#print(c12s2.argmax())
 
 shift = c12s2.argmax() - (len(ref) /3) + 1
 wykshift = shift * 3
-#print(shift)
-#print(shift * 3)
 
 shiftdir = True
 if (wykshift >= 0):
